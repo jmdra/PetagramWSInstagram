@@ -42,6 +42,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+        <activity android:name=".Cuenta">
+            android:parentActivityName=".MainActivity">
+
+            <!-- Soporte para versiones 4.0 o menor -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
     </application>
 
 </manifest>

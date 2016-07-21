@@ -5,26 +5,28 @@ package com.whiwol.petagram.pojo;
  */
 public class Mascota {
 
-    private int id;
+    private String id;
     private String nombre;
+    private String nombreCompleto;
     private int likes;
-    private int foto;
+    private String urlFoto;
+    private String urlFotoPerfil;
 
-    public Mascota(String nombre, int likes, int foto) {
+    public Mascota(String nombre, int likes, String urlFoto){
         this.nombre = nombre;
         this.likes = likes;
-        this.foto = foto;
+        this.urlFoto = urlFoto;
     }
 
     public Mascota() {
 
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -36,6 +38,14 @@ public class Mascota {
         this.nombre = nombre;
     }
 
+    public String getNombreCompleto() {
+        return nombreCompleto;
+    }
+
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
+    }
+
     public int getLikes() {
         return likes;
     }
@@ -44,11 +54,19 @@ public class Mascota {
         this.likes = likes;
     }
 
-    public int getFoto() {
-        return foto;
+    public String getUrlFoto() {
+        return urlFoto;
     }
 
-    public void setFoto(int foto) {
-        this.foto = foto;
+    public void setUrlFoto(String urlFoto) {
+        this.urlFoto = urlFoto;
+    }
+
+    public String getUrlFotoPerfil() {
+        return urlFotoPerfil;
+    }
+
+    public void setUrlFotoPerfil(String urlFotoPerfil) {
+        this.urlFotoPerfil = urlFotoPerfil;
     }
 }

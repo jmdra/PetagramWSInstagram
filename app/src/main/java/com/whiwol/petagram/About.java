@@ -44,6 +44,12 @@ public class About extends AppCompatActivity {
                 //Crear el Intent para Activity de Datos de Desarrollador
                 Toast.makeText(this, R.string.about_toolbar, Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.action_account:
+                //Crear el Intent para Activity de Datos de Desarrollador
+                Toast.makeText(this, R.string.account_toolbar, Toast.LENGTH_SHORT).show();
+                Intent intent4 = new Intent(About.this, Cuenta.class);
+                startActivity(intent4);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

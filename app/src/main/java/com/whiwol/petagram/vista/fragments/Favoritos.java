@@ -49,11 +49,11 @@ public class Favoritos extends AppCompatActivity implements IFavoritos{
     public void inicializarFavs(){
         mascotas = new ArrayList<Mascota>();
 
-        mascotas.add(new Mascota("Vamo a Calmarno", 15, R.drawable.squar));
-        mascotas.add(new Mascota("Charmander", 12, R.drawable.charmander));
-        mascotas.add(new Mascota("Hunter", 10, R.drawable.hunter));
-        mascotas.add(new Mascota("Mew", 10, R.drawable.mew));
-        mascotas.add(new Mascota("Ho-Oh", 7, R.drawable.hooh));
+        mascotas.add(new Mascota("Vamo a Calmarno", 15, "R.drawable.squar"));
+        mascotas.add(new Mascota("Charmander", 12, "R.drawable.charmander"));
+        mascotas.add(new Mascota("Hunter", 10, "R.drawable.hunter"));
+        mascotas.add(new Mascota("Mew", 10, "R.drawable.mew"));
+        mascotas.add(new Mascota("Ho-Oh", 7, "R.drawable.hooh"));
     }
 
     @Override

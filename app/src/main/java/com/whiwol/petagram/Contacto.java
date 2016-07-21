@@ -133,6 +133,12 @@ public class Contacto extends AppCompatActivity{
                 Intent intent3 = new Intent(Contacto.this, About.class);
                 startActivity(intent3);
                 break;
+            case R.id.action_account:
+                //Crear el Intent para Activity de Datos de Desarrollador
+                Toast.makeText(this, R.string.account_toolbar, Toast.LENGTH_SHORT).show();
+                Intent intent4 = new Intent(Contacto.this, Cuenta.class);
+                startActivity(intent4);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

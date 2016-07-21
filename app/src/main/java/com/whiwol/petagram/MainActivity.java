@@ -1,6 +1,8 @@
 package com.whiwol.petagram;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private String perfilInstagram;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +39,15 @@ public class MainActivity extends AppCompatActivity {
 
         setUpPageViewer();
 
+        obtenerPerfilShared();
+        if (perfilInstagram.equals("")){
+            crearPerfilShared();
+        }
+
         if(toolbar != null){
             setSupportActionBar(toolbar);
             getSupportActionBar().setIcon(R.drawable.petagram);
+            getSupportActionBar().setTitle(R.string.app_name);
         }
 
     }
@@ -89,8 +98,27 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, R.string.about_toolbar, Toast.LENGTH_SHORT).show();
                 Intent intent3 = new Intent(MainActivity.this, About.class);
                 startActivity(intent3);
+                break;
+            case R.id.action_account:
+                //Crear el Intent para Activity de Datos de Desarrollador
+                Toast.makeText(this, R.string.account_toolbar, Toast.LENGTH_SHORT).show();
+                Intent intent4 = new Intent(MainActivity.this, Cuenta.class);
+                startActivity(intent4);
+                break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void crearPerfilShared(){
+        SharedPreferences perfilInstagram = getSharedPreferences("shared", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = perfilInstagram.edit();
+        editor.putString("perfilInstagram", "duquedux");
+        editor.commit();
+    }
+
+    private void obtenerPerfilShared(){
+        SharedPreferences misReferencias = getSharedPreferences("shared", Context.MODE_PRIVATE);
+        perfilInstagram = misReferencias.getString("perfilInstagram", "");
     }
 
 }

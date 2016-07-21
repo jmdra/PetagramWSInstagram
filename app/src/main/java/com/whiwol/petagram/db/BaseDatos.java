@@ -53,10 +53,10 @@ public class BaseDatos extends SQLiteOpenHelper{
 
         while (registros.moveToNext()) {
             Mascota mascotaActual = new Mascota();
-            mascotaActual.setId(registros.getInt(0));
+            mascotaActual.setId(registros.getString(0));
             mascotaActual.setNombre(registros.getString(1));
             mascotaActual.setLikes(registros.getInt(2));
-            mascotaActual.setFoto(registros.getInt(3));
+            mascotaActual.setUrlFoto(registros.getString(3));
 
             mascotas.add(mascotaActual);
         }

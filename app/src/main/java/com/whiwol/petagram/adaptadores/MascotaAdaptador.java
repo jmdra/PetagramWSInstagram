@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
 import com.whiwol.petagram.db.ConstructorMascotas;
 import com.whiwol.petagram.pojo.Mascota;
 import com.whiwol.petagram.R;
@@ -45,9 +46,17 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
         ConstructorMascotas constructorMascotas = new ConstructorMascotas(activity);
 
         final Mascota mascota = mascotas.get(position);
-        mascotaViewHolder.tvNombreCV.setText(mascota.getNombre());
-        mascotaViewHolder.tvLikesCV.setText(Integer.toString(constructorMascotas.obtenerLikesMascota(mascota)));
-        mascotaViewHolder.imgFoto.setImageResource(mascota.getFoto());
+        mascotaViewHolder.tvNombreCV.setText(String.valueOf(mascota.getNombre()));
+        mascotaViewHolder.tvLikesCV.setText(Integer.toString(mascota.getLikes()));
+        Picasso.with(activity)
+                .load(mascota.getUrlFoto())
+                .placeholder(R.drawable.hunter)
+                .into(mascotaViewHolder.imgFoto);
+
+        Picasso.with(activity)
+                .load(mascota.getUrlFotoPerfil())
+                .placeholder(R.drawable.hunter)
+                .into(mascotaViewHolder.imgFotoPerfil);
 
         //8.- Haciendo Click en la Imagen
         mascotaViewHolder.imgFoto.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +102,7 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
         private TextView tvNombreCV;
         private TextView tvLikesCV;
         private ImageButton btnLike;
+        private ImageView imgFotoPerfil;
 
         public MascotaViewHolder(View itemView) {
             super(itemView);
@@ -101,6 +111,7 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
             tvNombreCV      = (TextView)    itemView.findViewById(R.id.tvNombreCV);
             tvLikesCV       = (TextView)    itemView.findViewById(R.id.tvLikesCV);
             btnLike         = (ImageButton) itemView.findViewById(R.id.btnLike);
+            imgFotoPerfil   = (ImageView)   itemView.findViewById(R.id.civFotoPerfil);
         }
     }
 }
